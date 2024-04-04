@@ -39,6 +39,7 @@ let thedata = d3.json(url).then(function (data) {
         y: otu_ids,
         type: "bar",
         orientation: "h",
+        hovertext: otu_labels
     };
 
     // Plug the data into the Plotly function
