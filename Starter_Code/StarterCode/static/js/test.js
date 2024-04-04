@@ -1,22 +1,22 @@
+// URL for the samples.json filesample_data
+const url = "https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json";
 
-// Create a bubble chart for Patient 0
-let title2 = "Bubble: Patient 0";
+// Fetch the JSON data and console log it
+let thedata = d3.json(url).then(function (data) {
+    console.log(data);
 
-// Create the trace for the plot
-let trace2 = {
-    x: otu_ids,
-    y: sample_values,
-    marker_size: sample_values,
-    type: "bubble",
-    marker_color: otu_ids,
-    text: otu_labels
-}
+    // Extract the ID's from data and console log it
+    let ids = data.names;
+    console.log("IDs", ids);
 
-// Create the data array for the plot
-let BubbleTrace = trace2;
+    // Slice to the first individual's data
+    let individual = data.samples[0];
+    let individualMetaData = data.metadata[3];
+    console.log("Patient 0", individual);
 
-let layout2 = {
-    title: title2
-};
 
-Plotly.newPlot("bubble", BubbleTrace, layout2);
+    BarChart(individual);
+    BubbleChart(individual);
+    MetaData(individualMetaData);
+
+});
