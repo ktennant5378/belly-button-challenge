@@ -52,6 +52,7 @@ function BarChart(individual) {
         y: otu_ids,
         type: "bar",
         orientation: "h",
+        hovertext: otu_labels
     };
 
     // Plug the data into the Plotly function
