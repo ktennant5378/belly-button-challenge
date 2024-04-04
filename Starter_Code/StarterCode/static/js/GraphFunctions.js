@@ -1,6 +1,6 @@
 function BubbleChart(individual) {
     // Create a bubble chart for Patient 0
-    let bubbleTitle = "Bubble: Patient 0";
+    let bubbleTitle = `Bubble`;
 
     // Create the trace for the bubble plot
     let BubbleTrace = {
@@ -30,7 +30,6 @@ function BubbleChart(individual) {
 function BarChart(individual) {
     // Sort the data by sample values and console log it
     individual.sample_values.sort((a, b) => b - a);
-    console.log("Sorted Patient 0", individual);
 
     // Slice the data to the top 10 samples_values and console log it
     let sortedIndividual = {
@@ -44,13 +43,8 @@ function BarChart(individual) {
     let otu_ids = sortedIndividual.otu_ids.map(id => `OTU: ${id}`);
     let otu_labels = sortedIndividual.otu_labels;
 
-    // Console log the data
-    console.log("sample_values:", sample_values);
-    console.log("otu_ids", otu_ids);
-    console.log("otu_labels", otu_labels);
-
     // Create a horizontal bar chart for Patient 0
-    let title = "Patient 0";
+    let title = "Bar";
 
     // Trace1 for the OTU Data
     let trace1 = {
@@ -73,9 +67,6 @@ function BarChart(individual) {
 function MetaData(individualMetaData) {
     // Create variables to hold the ID, ethnicity, gender, age, location, bbtype, wfreq
     let metadata = individualMetaData.metadata;
-
-    // Console log the metadata as one object
-    console.log("individualMetaData:", individualMetaData);
 
     // Select the metadata element
     let metadataElement = d3.select("#sample-metadata");
