@@ -1,33 +1,22 @@
 
+// Create a bubble chart for Patient 0
+let title2 = "Bubble: Patient 0";
 
-
-
-
-
-// Slice the first 10 objects for plotting
-var slicedData = sortedData.slice(0, 10);
-
-
-
-
-// Reverse the array to accommodate Plotly's defaults
-var reversedData = slicedData.reverse();
-
-// Create a horizontal bar chart with a dropdown menu to display the top 10 OTUs found in that individual
-let title = "Top 10 OTUs Found in Individual";
-// Trace1 for the OTU Data
-let trace1 = {
-    x: sample_values,
-    y: otu_ids,
-    type: "bar",
-    orientation: "h",
+// Create the trace for the plot
+let trace2 = {
+    x: otu_ids,
+    y: sample_values,
+    marker_size: sample_values,
+    type: "bubble",
+    marker_color: otu_ids,
     text: otu_labels
-};
-// Plug the data into the Plotly function
-let d = [trace1];
+}
 
-let layout = {
-    title: title
+// Create the data array for the plot
+let BubbleTrace = trace2;
+
+let layout2 = {
+    title: title2
 };
 
-Plotly.newPlot("bar", d, layout);
+Plotly.newPlot("bubble", BubbleTrace, layout2);

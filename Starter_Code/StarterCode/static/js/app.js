@@ -39,16 +39,42 @@ let thedata = d3.json(url).then(function (data) {
         y: otu_ids,
         type: "bar",
         orientation: "h",
-        hovertext: otu_labels
     };
 
     // Plug the data into the Plotly function
-    let d = [trace1];
+    let BarTrace = [trace1];
 
     let layout = {
         title: title
     };
 
-    Plotly.newPlot("bar", d, layout);
+    Plotly.newPlot("bar", BarTrace, layout);
 
+
+    // Create a bubble chart for Patient 0
+    let bubbleTitle = "Bubble: Patient 0";
+
+    // Create the trace for the bubble plot
+    let trace2 = {
+        x: individual.otu_ids,
+        y: individual.sample_values,
+        mode: 'markers',
+        marker: {
+            size: individual.sample_values,
+            color: individual.otu_ids
+        },
+        text: individual.otu_labels
+    };
+
+    // Create the data array for the plot
+    let bubbleData = [trace2];
+
+    let bubbleLayout = {
+        title: bubbleTitle,
+        showlegend: false,
+        height: 600,
+        width: 1200
+    };
+
+    Plotly.newPlot("bubble", bubbleData, bubbleLayout);
 });
