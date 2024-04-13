@@ -8,7 +8,7 @@ let allData;
 d3.json(url).then(function (data) {
     // Store the data for later use
     allData = data;
-
+    console.log("allData", allData);
     // Populate the dropdown for the first time
     initializeDropdown(data.names);
 
@@ -16,6 +16,7 @@ d3.json(url).then(function (data) {
     optionChanged("940");
 });
 
+console.log("Global_allData", allData);
 function initializeDropdown(names) {
     // Select the dropdown menu
     let dropdown = d3.select("#selDataset");
